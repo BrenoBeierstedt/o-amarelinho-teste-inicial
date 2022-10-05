@@ -4,7 +4,7 @@ services:
   web:
     restart: always
     container_name: web
-    build: ./
+    build: ./o-amarelinho-teste-inicial
     volumes:
       - "./o-amarelinho-teste-web:/usr/src/app"
     environment:
@@ -18,13 +18,12 @@ services:
   api:
     restart: always
     container_name: api
-    build: ./
+    build: ./o-amarelinho-teste-inicial
     volumes:
       - "./o-amarelinho-teste-api:/usr/src/app"
     environment:
       NODE_ENV: "development"
-      PORT: 3000
-      DATABASE_URL: "postgresql://postgres:someStrongPassword@postgres:5432/nlw?schema=public"
+      PORT: 4000
     ports:
       - "4000:4000"
       - "5555:5555"
