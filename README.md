@@ -29,7 +29,7 @@ MAC: https://docs.docker.com/docker-for-mac/install/
 Linux - Fedora: https://docs.docker.com/install/linux/docker-ce/fedora/
 
 ## Executando
-No terminal rode ``./install.sh`` ou ``./install.bat``
+No terminal rode ``./install.sh``
 
 ## Estrutura de pasta após execução
 * É recomendado ter uma pasta raiz acima deste projeto, tendo em vista que o mesmo fará download dos outros repositórios
