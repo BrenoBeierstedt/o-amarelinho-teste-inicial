@@ -1,0 +1,38 @@
+version: "3.6"
+services:
+
+  web:
+    restart: always
+    container_name: web
+    build: ./
+    volumes:
+      - "./o-amarelinho-teste-web:/usr/src/app"
+    environment:
+      NODE_ENV: "development"
+    ports:
+      - "3000:5173"
+    command: [ '.s2i/bin/assemble' ]
+    networks:
+      - amarelinho
+
+  api:
+    restart: always
+    container_name: api
+    build: ./
+    volumes:
+      - "./o-amarelinho-teste-api:/usr/src/app"
+    environment:
+      NODE_ENV: "development"
+      PORT: 3000
+      DATABASE_URL: "postgresql://postgres:someStrongPassword@postgres:5432/nlw?schema=public"
+    ports:
+      - "4000:4000"
+      - "5555:5555"
+    command: [ '.s2i/bin/assemble' ]
+    networks:
+      - amarelinho
+
+networks:
+  amarelinho:
+    driver: bridge
+    name: amarelinho
